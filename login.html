@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://kit.fontawesome.com/22ef2d7901.js" crossorigin="anonymous"></script>
+    <style>
+        body {
+            background-color: black;
+            margin: 0;
+            font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+            font-size: 1.2em;
+        }
+
+        #nav {
+            display: flex;
+            background: yellow;
+            height: 60px;
+            justify-content: space-around;
+            align-items: center;
+        }
+
+        #nav div {
+            cursor: pointer;
+            color: black;
+        }
+
+        .logo {
+            scale: 2;
+            position: relative;
+        }
+
+        .admin {
+            display: none;
+        }
+
+        /* stop */
+
+        .form {
+            position: absolute;
+            top: 55%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            height: 500px;
+            width: 400px;
+            background-color: rgb(224, 224, 224);
+            border-radius: 20px;
+            padding: 20px;
+            border-radius: 20px;
+        }
+
+        input {
+            width: 98%;
+            height: 40px;
+            margin-top: 10px;
+            border-radius: 10px;
+            border: none;
+            box-sizing: border-box;
+            font-size: 1.1em;
+            padding: 10px;
+        }
+
+        input:focus {
+            border: rgb(208, 208, 0) 2px solid;
+            outline: none
+        }
+
+        input:focus+label {
+            opacity: 0;
+            transition: 0.2s;
+        }
+
+        #submit {
+            font-size: 1.5em;
+            border-radius: 10px;
+            display: block;
+            margin-top: 20px;
+        }
+
+
+        label {
+            position: relative;
+            top: -55px;
+            left: 10px;
+            transition: 0.2s;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="nav">
+        <div class="logo nav-item"><a href="home.html"><i class="fa-solid fa-building-columns"></i></a></div>
+        <div class="home nav-item"><a href="home.html">Home</a></div>
+        <div class="Registration nav-item"><a href="registration.html">Registration</a></div>
+        <div class="login nav-item">Login</div>
+        <div class="admin nav-item"><a href=""><i class="fa-solid fa-user"></i></a></div>
+    </div>
+
+    <div class="form">
+        <h1>LOG IN</h1>
+        <hr>
+        <input id="name" type="text">
+        <label for="name">Name: </label>
+        <input id="email" type="email">
+        <label for="email">Email: </label>
+        <input id="password" type="text">
+        <label for="password">Password: </label>
+        <input id="password2" type="text">
+        <label for="password2">Confirm Password: </label>
+        <button id="submit" onclick="myLogin()">Log in</button>
+        <a href="registration.html">REGISTER</a>
+    </div>
+
+
+    <script>
+
+        let name = document.getElementById("name");
+        let email = document.getElementById("email");
+        let password = document.getElementById("password");
+        let password2 = document.getElementById("password2");
+        let form = document.getElementsByClassName("form");
+
+
+        function myLogin() {
+
+
+            for (let i = 0; i < form[0].children.length; i++) {
+                if (form[0].children[i].tagName === "INPUT") {
+                    if (!form[0].children[i].value) {
+                        form[0].style.border = 'red 2.5px solid'
+                        return;
+                    }
+                }
+            }
+
+            if (password.value != password2.value) {
+                form[0].style.border = 'red 2.5px solid'
+                return;
+            }
+
+            const accounts = JSON.parse(localStorage.getItem("accounts")) || []
+
+            const user = accounts.find(account => account.email === email.value && account.password === password.value);
+
+
+            if (user) {
+                console.log("Logged in as: " + user.username)
+                localStorage.setItem("id", user.email)
+            } else {
+                console.log("err")
+            }
+
+
+        }
+
+    </script>
+</body>
+
+</html>

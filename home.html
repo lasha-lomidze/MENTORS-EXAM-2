@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://kit.fontawesome.com/22ef2d7901.js" crossorigin="anonymous"></script>
+    <style>
+        body {
+            background-color: black;
+            margin: 0;
+            font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+            font-size: 1.2em;
+        }
+
+        #nav {
+            display: flex;
+            background: yellow;
+            height: 60px;
+            justify-content: space-around;
+            align-items: center;
+        }
+
+        #nav div {
+            cursor: pointer;
+            color: black;
+        }
+
+        .logo {
+            scale: 2;
+            position: relative;
+        }
+
+        .admin {
+            display: none;
+        }
+
+        /* stop */
+
+        .home {
+            text-decoration: underline;
+        }
+
+        img {
+            width: 100vw;
+            height: 600px;
+        }
+
+        .hero {
+            position: relative;
+        }
+
+        .intro {
+            border-radius: 30px;
+            color: aliceblue;
+            width: 50%;
+            max-width: 600px;
+            height: 300px;
+            text-align: center;
+            position: absolute;
+            background-color: rgba(16, 16, 16, 0.584);
+            top: 20%;
+            left: 50%;
+            transform: translateX(-50%);
+            padding: 20px;
+        }
+
+        .intro a {
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="nav">
+        <div class="logo nav-item"><i class="fa-solid fa-building-columns"></i></div>
+        <div class="home nav-item">Home</div>
+        <div class="Registration nav-item"><a href="registration.html">Registration</a></div>
+        <div class="login nav-item"><a href="login.html">Login</a></div>
+        <div class="admin nav-item"><a href=""><i class="fa-solid fa-user"></i></a></div>
+    </div>
+
+    <div class="hero">
+        <img src="photo-1501167786227-4cba60f6d58f.jpeg" alt="">
+        <div class="intro">
+            <h2>WELCOME TO GOA BANK</h2>
+            <p>Best bank for anyone who needs some good quality feautures to handle money!
+                We offer best deals and quality services to help you reach your financial dreams!
+            </p>
+            <div class="logIn"><a href="login.html">Log In</a></div>
+            <div class="signUp"><a href="registration.html">Sign Up</a></div>
+        </div>
+    </div>
+
+</body>
+
+</html>
+
+
+
+<!-- black, yellow -->
